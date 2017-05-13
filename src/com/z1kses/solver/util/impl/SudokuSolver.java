@@ -48,16 +48,8 @@ public class SudokuSolver implements Solver<Cell[][]> {
 		while (!isSolved()) {
 			boolean hasProgress = sudokuSolverIterator.calculateNextStep(field);
 
-			if (!hasProgress) {
-				for (int i = 0; i < FIELD_SIZE; i++) {
-					for (int j = 0; j < FIELD_SIZE; j++)
-						System.out.print(field[i][j].getValue() + " ");
-					System.out.println();
-				}
-				
-				System.out.println(field[6][3]);
+			if (!hasProgress)
 				throw new CannotSolveException();
-			}
 		}
 	}
 

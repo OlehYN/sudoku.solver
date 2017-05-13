@@ -42,5 +42,4 @@ public class BlockSudokuStrategy implements SudokuStrategy {
 		return true;
 	}
 
-
 }

@@ -39,5 +39,4 @@ public class ColumnSudokuStrategy implements SudokuStrategy {
 		return true;
 	}
 
-
 }

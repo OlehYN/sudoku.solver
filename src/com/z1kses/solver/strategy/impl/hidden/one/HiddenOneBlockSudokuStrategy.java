@@ -1,4 +1,4 @@
-package com.z1kses.solver.strategy.impl.hidden;
+package com.z1kses.solver.strategy.impl.hidden.one;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class HiddenOneBlockSudokuStrategy implements SudokuStrategy {
 		if (currentValues.size() == 1) {
 			cell.setValue(currentValues.get(0));
 			cell.setPossibleValues(null);
-			
+
 			return true;
 		}
 		return false;
