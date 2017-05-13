@@ -34,13 +34,6 @@ public abstract class GenericSetSudokuStrategy implements SudokuStrategy {
 					|| openSetContainer.getMain().size() == 1)
 				continue;
 
-			Set<Integer> otherValues = new HashSet<>();
-
-			for (Cell otherCell : openSetContainer.getOther())
-				otherValues.addAll(otherCell.getPossibleValues());
-
-			possibleValues.removeAll(otherValues);
-
 			if (setSize != possibleValues.size())
 				continue;
 

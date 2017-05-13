@@ -28,14 +28,6 @@ public class App {
 
 	private static final int MAX_SIZE = 9;
 
-	// Challenger level - 155
-	// FAIL
-	private static Integer[][] level8 = { { null, null, null, null, null, 2, 8, 1, null },
-			{ null, 1, null, null, null, null, null, 7, null }, { 8, null, 3, null, 1, null, null, null, null },
-			{ 2, null, null, 5, null, null, 9, null, 4 }, { null, null, 8, 6, null, 1, 2, null, null },
-			{ 4, null, 5, null, null, 3, null, null, 1 }, { null, null, null, null, 5, null, 1, null, 3 },
-			{ null, 8, null, null, null, null, null, 2, null }, { null, 5, 7, 2, null, null, null, null, null } };
-
 	// Final boss
 	// FAIL
 	private static Integer[][] boss = { { null, null, 5, 3, null, null, null, null, null },
@@ -66,13 +58,13 @@ public class App {
 
 		List<SudokuStrategy> strategies = new ArrayList<>();
 
-		strategies.add(hiddenBlockSetStrategy);
-		strategies.add(hiddenRowSetStrategy);
-		strategies.add(hiddenColumnSetStrategy);
-
 		strategies.add(rowSetStrategy);
 		strategies.add(columnSetStrategy);
 		strategies.add(blockSetStrategy);
+
+		strategies.add(hiddenBlockSetStrategy);
+		strategies.add(hiddenRowSetStrategy);
+		strategies.add(hiddenColumnSetStrategy);
 
 		strategies.add(lockedRowStrategy);
 		strategies.add(lockedColumnStrategy);
@@ -87,7 +79,7 @@ public class App {
 
 		SudokuSolverIterator sudokuSolverIterator = new SudokuSolverIteratorImpl(strategies);
 
-		Solver<Cell[][]> solver = new SudokuSolver(level8, sudokuSolverIterator);
+		Solver<Cell[][]> solver = new SudokuSolver(boss, sudokuSolverIterator);
 
 		try {
 			solver.solve();

@@ -85,12 +85,53 @@ public class UnitTest {
 			{ null, null, 8, null, null, null, 4, 2, null }, { 4, null, null, null, 9, null, null, null, null } };
 
 	// Challenger level - 155
-	// FAIL
+	// DONE
 	private static Integer[][] level8 = { { null, null, null, null, null, 2, 8, 1, null },
 			{ null, 1, null, null, null, null, null, 7, null }, { 8, null, 3, null, 1, null, null, null, null },
 			{ 2, null, null, 5, null, null, 9, null, 4 }, { null, null, 8, 6, null, 1, 2, null, null },
 			{ 4, null, 5, null, null, 3, null, null, 1 }, { null, null, null, null, 5, null, 1, null, 3 },
 			{ null, 8, null, null, null, null, null, 2, null }, { null, 5, 7, 2, null, null, null, null, null } };
+
+	// Challenger level - 156
+	// DONE
+	private static Integer[][] level9 = { { 3, null, null, null, 7, null, 1, null, null },
+			{ null, 1, 2, null, null, null, null, 3, null }, { null, null, null, 3, 2, null, 5, null, 4 },
+			{ 8, null, null, 5, null, 2, null, null, 1 }, { null, null, 7, null, null, null, 6, null, null },
+			{ 1, null, null, 7, null, 4, null, null, 9 }, { 9, null, 6, null, 4, 8, null, null, null },
+			{ null, 2, null, null, null, null, 9, 1, null }, { null, null, 1, null, 9, null, null, null, 6 } };
+
+	// Challenger level - 157
+	// DONE
+	private static Integer[][] level10 = { { null, 4, null, null, null, 6, null, null, 3 },
+			{ 5, null, null, null, 8, 4, null, null, 2 }, { null, null, 2, null, null, null, null, 4, null },
+			{ null, null, null, null, 2, 5, null, null, 7 }, { null, 1, null, null, null, null, null, 5, null },
+			{ 9, null, null, 6, 3, null, null, null, null }, { null, 3, null, null, null, null, 4, null, null },
+			{ 8, null, null, 7, 6, null, null, null, 5 }, { 1, null, null, 8, null, null, null, 3, null } };
+
+	// Challenger level - 158
+	// DONE
+	private static Integer[][] level11 = { { 2, null, null, 3, null, null, 1, 5, null },
+			{ null, 5, null, 4, null, null, null, null, null }, { 6, null, null, null, null, null, null, 8, null },
+			{ 7, null, null, 2, null, 8, null, null, null }, { null, null, 4, null, null, null, 6, null, null },
+			{ null, null, null, 7, null, 1, null, null, 2 }, { null, 9, null, null, null, null, null, null, 6 },
+			{ null, null, null, null, null, 9, null, 1, null }, { null, 8, 3, null, null, 7, null, null, 5 } };
+
+	// Challenger level - 159
+	// DONE
+	private static Integer[][] level12 = { { null, 2, null, null, null, null, null, null, 9 },
+			{ null, null, null, null, null, 3, 4, 2, null }, { null, 5, null, null, 6, 9, 7, null, null },
+			{ null, 9, 8, null, null, 5, null, null, 4 }, { null, null, 5, null, 2, null, 3, null, null },
+			{ 2, null, null, 9, null, null, 1, 5, null }, { null, null, 9, 8, 3, null, null, 1, null },
+			{ null, 8, 2, 7, null, null, null, null, null }, { 3, null, null, null, null, null, null, 4, null } };
+
+	// Challenger level - 160
+	// DONE
+	// America's Best Sudoku (volume 81) has fallen
+	private static Integer[][] level13 = { { 5, null, null, null, 4, null, 6, null, null },
+			{ null, 9, null, 7, null, null, 5, null, null }, { null, null, 6, 2, null, null, null, 3, 1 },
+			{ null, 3, null, 8, null, 4, 1, null, null }, { null, null, null, null, null, null, null, null, null },
+			{ null, null, 1, 9, null, 3, null, 4, null }, { 4, 7, null, null, null, 2, 8, null, null },
+			{ null, null, 2, null, null, 8, null, 5, null }, { null, null, 5, null, 6, null, null, null, 3 } };
 
 	// Final boss
 	// FAIL
@@ -192,6 +233,36 @@ public class UnitTest {
 	@Test
 	public void testLevel8() {
 		Solver<Cell[][]> solver = new SudokuSolver(level8, sudokuSolverIterator);
+		solver.solve();
+	}
+
+	@Test
+	public void testLevel9() {
+		Solver<Cell[][]> solver = new SudokuSolver(level9, sudokuSolverIterator);
+		solver.solve();
+	}
+
+	@Test
+	public void testLevel10() {
+		Solver<Cell[][]> solver = new SudokuSolver(level10, sudokuSolverIterator);
+		solver.solve();
+	}
+
+	@Test
+	public void testLevel11() {
+		Solver<Cell[][]> solver = new SudokuSolver(level11, sudokuSolverIterator);
+		solver.solve();
+	}
+
+	@Test
+	public void testLevel12() {
+		Solver<Cell[][]> solver = new SudokuSolver(level12, sudokuSolverIterator);
+		solver.solve();
+	}
+
+	@Test
+	public void testLevel13() {
+		Solver<Cell[][]> solver = new SudokuSolver(level13, sudokuSolverIterator);
 		solver.solve();
 	}
 
