@@ -28,13 +28,12 @@ public class App {
 
 	private static final int MAX_SIZE = 9;
 
-	// Final boss
-	// FAIL
-	private static Integer[][] boss = { { null, null, 5, 3, null, null, null, null, null },
-			{ 8, null, null, null, null, null, null, 2, null }, { null, 7, null, null, 1, null, 5, null, null },
-			{ 4, null, null, null, null, 5, 3, null, null }, { null, 1, null, null, 7, null, null, null, 6 },
-			{ null, null, 3, 2, null, null, null, 8, null }, { null, 6, null, 5, null, null, null, null, 9 },
-			{ null, null, 4, null, null, null, null, 3, null }, { null, null, null, null, null, 9, 7, null, null } };
+	// Challenger level - 159
+	private static Integer[][] example = { { null, 2, null, null, null, null, null, null, 9 },
+			{ null, null, null, null, null, 3, 4, 2, null }, { null, 5, null, null, 6, 9, 7, null, null },
+			{ null, 9, 8, null, null, 5, null, null, 4 }, { null, null, 5, null, 2, null, 3, null, null },
+			{ 2, null, null, 9, null, null, 1, 5, null }, { null, null, 9, 8, 3, null, null, 1, null },
+			{ null, 8, 2, 7, null, null, null, null, null }, { 3, null, null, null, null, null, null, 4, null } };
 
 	public static void main(String[] args) {
 		SudokuStrategy rowStrategy = new RowSudokuStrategy();
@@ -79,7 +78,7 @@ public class App {
 
 		SudokuSolverIterator sudokuSolverIterator = new SudokuSolverIteratorImpl(strategies);
 
-		Solver<Cell[][]> solver = new SudokuSolver(boss, sudokuSolverIterator);
+		Solver<Cell[][]> solver = new SudokuSolver(example, sudokuSolverIterator);
 
 		try {
 			solver.solve();

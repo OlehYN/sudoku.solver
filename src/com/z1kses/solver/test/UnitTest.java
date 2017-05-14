@@ -7,6 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.z1kses.solver.entity.impl.Cell;
+import com.z1kses.solver.exception.CannotSolveException;
 import com.z1kses.solver.iterator.SudokuSolverIterator;
 import com.z1kses.solver.iterator.impl.SudokuSolverIteratorImpl;
 import com.z1kses.solver.strategy.SudokuStrategy;
@@ -134,7 +135,7 @@ public class UnitTest {
 			{ null, null, 2, null, null, 8, null, 5, null }, { null, null, 5, null, 6, null, null, null, 3 } };
 
 	// Final boss
-	// FAIL
+	// Cannot be solved without recursion
 	private static Integer[][] boss = { { null, null, 5, 3, null, null, null, null, null },
 			{ 8, null, null, null, null, null, null, 2, null }, { null, 7, null, null, 1, null, 5, null, null },
 			{ 4, null, null, null, null, 5, 3, null, null }, { null, 1, null, null, 7, null, null, null, 6 },
@@ -192,83 +193,119 @@ public class UnitTest {
 	public void testLevel1() {
 		Solver<Cell[][]> solver = new SudokuSolver(level1, sudokuSolverIterator);
 		solver.solve();
+
+		showSolution(solver.getField());
 	}
 
 	@Test
 	public void testLevel2() {
 		Solver<Cell[][]> solver = new SudokuSolver(level2, sudokuSolverIterator);
 		solver.solve();
+
+		showSolution(solver.getField());
 	}
 
 	@Test
 	public void testLevel3() {
 		Solver<Cell[][]> solver = new SudokuSolver(level3, sudokuSolverIterator);
 		solver.solve();
+
+		showSolution(solver.getField());
 	}
 
 	@Test
 	public void testLevel4() {
 		Solver<Cell[][]> solver = new SudokuSolver(level4, sudokuSolverIterator);
 		solver.solve();
+
+		showSolution(solver.getField());
 	}
 
 	@Test
 	public void testLevel5() {
 		Solver<Cell[][]> solver = new SudokuSolver(level5, sudokuSolverIterator);
 		solver.solve();
+
+		showSolution(solver.getField());
 	}
 
 	@Test
 	public void testLevel6() {
 		Solver<Cell[][]> solver = new SudokuSolver(level6, sudokuSolverIterator);
 		solver.solve();
+
+		showSolution(solver.getField());
 	}
 
 	@Test
 	public void testLevel7() {
 		Solver<Cell[][]> solver = new SudokuSolver(level7, sudokuSolverIterator);
 		solver.solve();
+
+		showSolution(solver.getField());
 	}
 
 	@Test
 	public void testLevel8() {
 		Solver<Cell[][]> solver = new SudokuSolver(level8, sudokuSolverIterator);
 		solver.solve();
+
+		showSolution(solver.getField());
 	}
 
 	@Test
 	public void testLevel9() {
 		Solver<Cell[][]> solver = new SudokuSolver(level9, sudokuSolverIterator);
 		solver.solve();
+
+		showSolution(solver.getField());
 	}
 
 	@Test
 	public void testLevel10() {
 		Solver<Cell[][]> solver = new SudokuSolver(level10, sudokuSolverIterator);
 		solver.solve();
+
+		showSolution(solver.getField());
 	}
 
 	@Test
 	public void testLevel11() {
 		Solver<Cell[][]> solver = new SudokuSolver(level11, sudokuSolverIterator);
 		solver.solve();
+
+		showSolution(solver.getField());
 	}
 
 	@Test
 	public void testLevel12() {
 		Solver<Cell[][]> solver = new SudokuSolver(level12, sudokuSolverIterator);
 		solver.solve();
+
+		showSolution(solver.getField());
 	}
 
 	@Test
 	public void testLevel13() {
 		Solver<Cell[][]> solver = new SudokuSolver(level13, sudokuSolverIterator);
 		solver.solve();
+
+		showSolution(solver.getField());
 	}
 
-	@Test
+	@Test(expected = CannotSolveException.class)
 	public void testBoss() {
 		Solver<Cell[][]> solver = new SudokuSolver(boss, sudokuSolverIterator);
 		solver.solve();
+	}
+
+	public void showSolution(Cell[][] result) {
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++)
+				System.out.print(result[i][j].getValue() + " ");
+			System.out.println();
+		}
+
+		System.out.println();
 	}
 }
